@@ -21,7 +21,7 @@ RUN npm install
 COPY backend/ .
 
 # Copy React build to backend's public directory (or adjust based on your backend config)
-COPY --from=build-frontend /app/frontend/build ./public
+COPY --from=build-frontend /app/frontend/dist ./public
 
 
 # ======================
