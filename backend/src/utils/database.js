@@ -5,9 +5,13 @@ const dns = require('dns');
 dns.setDefaultResultOrder('ipv4first');
 
 // Database connection
+dns.lookup = require('dns').lookup;
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL || 'postgresql://postgres:password@localhost:5432/drone_analytics',
-  ssl: { rejectUnauthorized: false },
+    connectionString: process.env.DATABASE_URL,
+    ssl: { rejectUnauthorized: false },
+    host: 'db.rsdhurvyzrdmmvopfwre.supabase.co',
+    port: 5432,
+    connectionTimeoutMillis: 5000,
 });
 
 // Initialize database with all tables
