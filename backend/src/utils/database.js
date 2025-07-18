@@ -3,6 +3,7 @@ const { Pool } = require('pg');
 // Database connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://postgres:password@localhost:5432/drone_analytics',
+  ssl: { rejectUnauthorized: false },
 });
 
 // Initialize database with all tables
