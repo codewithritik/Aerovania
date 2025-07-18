@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 require('dotenv').config();
+const path = require('path');
 
 const { initDatabase, testConnection } = require('./src/utils/database');
 const { apiLimiter } = require('./src/middleware/rateLimiter');
@@ -136,6 +137,14 @@ process.on('SIGINT', () => {
   });
 });
 
+
+// / Serve static files from React
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Fallback for React Router
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
 // Start server
 async function startServer() {
   try {
