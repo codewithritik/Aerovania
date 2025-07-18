@@ -9,8 +9,6 @@ dns.lookup = require('dns').lookup;
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL,
     ssl: { rejectUnauthorized: false },
-    host: 'db.rsdhurvyzrdmmvopfwre.supabase.co',
-    port: 5432,
     connectionTimeoutMillis: 5000,
 });
 
