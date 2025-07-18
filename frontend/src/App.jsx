@@ -21,7 +21,7 @@ function PrivateRoute({ children }) {
 
 function PublicRoute({ children }) {
   const isAuthenticated = useSelector(state => state.auth.isAuthenticated);
-  return isAuthenticated ? <Navigate to="/dashboard" replace /> : children;
+  return isAuthenticated ? <Navigate to="/upload" replace /> : children;
 }
 
 function App() {
