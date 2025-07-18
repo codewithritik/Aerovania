@@ -137,14 +137,13 @@ process.on('SIGINT', () => {
   });
 });
 
-
-// / Serve static files from React
+// Serve React build files
 app.use(express.static(path.join(__dirname, 'public')));
 
-// Fallback for React Router
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
 // Start server
 async function startServer() {
   try {
