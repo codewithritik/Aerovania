@@ -1,5 +1,9 @@
 const { Pool } = require('pg');
 
+const dns = require('dns');
+
+dns.setDefaultResultOrder('ipv4first');
+
 // Database connection
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL || 'postgresql://postgres:password@localhost:5432/drone_analytics',
