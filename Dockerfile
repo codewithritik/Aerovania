@@ -29,4 +29,4 @@ COPY --from=build-frontend /app/frontend/dist ./public
 # ======================
 EXPOSE 5000
 ENV NODE_ENV=production
-CMD ["node", "index.js"]
+CMD ["node", "server.js"]
