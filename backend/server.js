@@ -40,7 +40,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // app.use(apiLimiter);
 
 // Health check routes
-app.get('/', async (req, res) => {
+app.get('/api', async (req, res) => {
   try {
     const dbStatus = await testConnection();
     
