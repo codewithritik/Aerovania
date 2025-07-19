@@ -1,0 +1,31 @@
+{
+  "drone_id": "DRONE_ZONE_4",
+  "date": "2025-07-14",
+  "location": "Zone D",
+  "violations": [
+    {
+      "id": "v301",
+      "type": "No Safety Vest",
+      "timestamp": "11:05:30",
+      "latitude": 26.54321,
+      "longitude": 88.12345,
+      "image_url": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "v302",
+      "type": "Unauthorized Person",
+      "timestamp": "11:20:15",
+      "latitude": 26.54350,
+      "longitude": 88.12400,
+      "image_url": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "v303",
+      "type": "Unattended Equipment",
+      "timestamp": "11:40:00",
+      "latitude": 26.54400,
+      "longitude": 88.12250,
+      "image_url": "https://via.placeholder.com/150"
+    }
+  ]
+}

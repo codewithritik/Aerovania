@@ -1,5 +1,13 @@
 # Aerovania Drone Analytics Platform
 
+---
+
+## 🚀 Live Demo
+
+The project is deployed and available at: [https://aerovania.onrender.com/](https://aerovania.onrender.com/)
+for backend : [https://aerovania.onrender.com/api](https://aerovania.onrender.com/api)
+---
+
 A full-stack solution for drone-based traffic violation analytics, featuring a secure backend API and a modern, interactive frontend dashboard.
 
 ---
@@ -19,7 +27,10 @@ A full-stack solution for drone-based traffic violation analytics, featuring a s
 - **Redux Toolkit** (State Management)
 - **CSS Modules**
 - **ESLint**
-
+- **react-leaflet** (Interactive Maps)
+- **recharts** (Charts & Graphs)
+- **react-table** (Data Tables)
+- **Tailwind-css** (css)
 ---
 
 ## Folder Structure
@@ -171,49 +182,18 @@ This project is licensed under the MIT License.
 
 ## Deploying on Render
 
-To deploy your full-stack app (Node.js backend + React frontend) on Render, you typically need a Dockerfile that builds both the backend and frontend, serves the frontend as static files, and runs the backend server. Since your backend and frontend are in separate folders, the Dockerfile should:
+The Aerovania platform is deployed on [Render](https://render.com/). You can view the live app here: [https://aerovania.onrender.com/](https://aerovania.onrender.com/)
 
-1. Build the frontend (React) and copy the static files to the backend (or a public directory).
-2. Install backend dependencies and start the backend server.
-3. Expose the backend port (8000).
+To deploy your own instance on Render:
 
-Render will use this Dockerfile to build and run your app. Below is a recommended approach for a monorepo like yours:
+1. Fork or clone this repository.
+2. Set up your environment variables in Render's dashboard (do not include them in the Dockerfile).
+3. Use the provided Dockerfile in the root directory for deployment.
+4. Set the service port to 8000 in Render.
+5. The backend will serve the frontend static files from the `/public` directory.
 
----
-
-**Create a new file named `Dockerfile` in the root of your project (next to `README.md`).**
-
-```dockerfile
-# Stage 1: Build frontend
-FROM node:18 AS frontend-build
-WORKDIR /app/frontend
-COPY frontend/package.json frontend/package-lock.json ./
-RUN npm install
-COPY frontend/ ./
-RUN npm run build
-
-# Stage 2: Build backend
-FROM node:18 AS backend-build
-WORKDIR /app/backend
-COPY backend/package.json backend/package-lock.json ./
-RUN npm install
-COPY backend/ ./
-# Copy built frontend to backend's public directory (adjust if needed)
-COPY --from=frontend-build /app/frontend/dist ./public
-
-# Stage 3: Production image
-FROM node:18-slim
-WORKDIR /app/backend
-COPY --from=backend-build /app/backend ./
-ENV NODE_ENV=production
-EXPOSE 8000
-CMD ["npm", "start"]
-```
+For more details, see the Dockerfile and the instructions above.
 
 ---
 
-**Instructions:**
-- This Dockerfile assumes your backend serves static files from `backend/public` (adjust if your backend serves from a different directory).
-- Make sure your backend is configured to serve static files (e.g., with `express.static`).
-- Set your Render service to use port 8000.
-- Add your environment variables in Render's dashboard (not in the Dockerfile).
+**Create a new file named `Dockerfile`

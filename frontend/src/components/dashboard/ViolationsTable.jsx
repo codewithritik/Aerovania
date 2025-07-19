@@ -21,12 +21,12 @@ const violationTable = ({violations}) => {
   const filteredData = useMemo(() => {
     return violation.filter((v) => {
       return (
-        (filterDroneId ? violation.drone_id === filterDroneId : true) &&
-        (filterDate ? violation.date === filterDate : true) &&
+        (filterDroneId ? v.drone_id === filterDroneId : true) &&
+        (filterDate ? v.date === filterDate : true) &&
         (filterType ? v.type === filterType : true)
       );
     });
-  }, [violation, violations, filterDroneId, filterDate, filterType]);
+  }, [violation, filterDroneId, filterDate, filterType]);
 
   const paginatedData = useMemo(() => {
     const start = page * pageSize;
@@ -37,7 +37,12 @@ const violationTable = ({violations}) => {
     () => [
       { accessorKey: "drone_id", header: "ID" },
       { accessorKey: "type", header: "Type" },
-      { accessorKey: "timestamp", header: "Timestamp" },
+      { accessorKey: "timestamp", header: "Timestamp", cell: (info) => {
+        const value = info.getValue();
+        if (!value) return "";
+        const date = new Date(value);
+        return isNaN(date) ? value : date.toLocaleString();
+      } },
       { accessorKey: "latitude", header: "Latitude" },
       { accessorKey: "longitude", header: "Longitude" },
       {
@@ -99,7 +104,7 @@ const violationTable = ({violations}) => {
             <option value="">All</option>
             {dates.map((date) => (
               <option key={date} value={date}>
-                {date}
+                {date ? new Date(date).toLocaleDateString() : ""}
               </option>
             ))}
           </select>

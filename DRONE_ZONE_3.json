@@ -1,0 +1,23 @@
+{
+  "drone_id": "DRONE_ZONE_3",
+  "date": "2025-07-12",
+  "location": "Zone C",
+  "violations": [
+    {
+      "id": "v201",
+      "type": "Unauthorized Access",
+      "timestamp": "08:30:00",
+      "latitude": 25.12345,
+      "longitude": 87.65432,
+      "image_url": "https://via.placeholder.com/150"
+    },
+    {
+      "id": "v202",
+      "type": "Fire Detected",
+      "timestamp": "08:45:00",
+      "latitude": 25.12375,
+      "longitude": 87.65510,
+      "image_url": "https://via.placeholder.com/150"
+    }
+  ]
+}

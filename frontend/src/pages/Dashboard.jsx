@@ -51,38 +51,6 @@ const Dashboard = () => {
   if (loading) return <div>Loading dashboard...</div>;
   if (error) return <div>Error: {error}</div>;
 
-  // Export handlers
-  const handleExportCSV = () => {
-    // Prepare CSV data
-    let csv = '';
-    // KPIs
-    if (kpis) {
-      csv += 'KPI,Value\n';
-      Object.entries(kpis).forEach(([key, value]) => {
-        csv += `${key},${value}\n`;
-      });
-      csv += '\n';
-    }
-    // Violations
-    if (violations && violations.length > 0) {
-      csv += 'Violations\n';
-      const headers = Object.keys(violations[0]);
-      csv += headers.join(',') + '\n';
-      violations.forEach(v => {
-        csv += headers.map(h => JSON.stringify(v[h] ?? '')).join(',') + '\n';
-      });
-    }
-    // Download CSV
-    const blob = new Blob([csv], { type: 'text/csv' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'dashboard_export.csv';
-    a.click();
-    URL.revokeObjectURL(url);
-  };
-
-
   return (
     <Layout>
       
