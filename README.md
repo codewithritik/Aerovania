@@ -6,6 +6,13 @@
 
 The project is deployed and available at: [https://aerovania.onrender.com/](https://aerovania.onrender.com/)
 for backend : [https://aerovania.onrender.com/api](https://aerovania.onrender.com/api)
+
+---
+
+## 📄 Project Overview (Google Drive)
+
+You can view a detailed project overview here: [Google Drive Project Overview](https://drive.google.com/file/d/1skus9HuexnjmgR8-w1AKApW_L-N0wZcz/view?usp=sharing)
+
 ---
 
 A full-stack solution for drone-based traffic violation analytics, featuring a secure backend API and a modern, interactive frontend dashboard.

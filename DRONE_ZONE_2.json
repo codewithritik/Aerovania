@@ -1,30 +1,30 @@
 {
-  "drone_id": "DRONE_ZONE_4",
-  "date": "2025-07-14",
-  "location": "Zone D",
+  "drone_id": "DRONE_ZONE_2",
+  "date": "2025-07-15",
+  "location": "Zone B",
   "violations": [
     {
-      "id": "v301",
-      "type": "No Safety Vest",
-      "timestamp": "11:05:30",
-      "latitude": 26.54321,
-      "longitude": 88.12345,
+      "id": "v101",
+      "type": "Gas Leak Detected",
+      "timestamp": "09:15:20",
+      "latitude": 24.12345,
+      "longitude": 86.54321,
       "image_url": "https://via.placeholder.com/150"
     },
     {
-      "id": "v302",
-      "type": "Unauthorized Person",
-      "timestamp": "11:20:15",
-      "latitude": 26.54350,
-      "longitude": 88.12400,
+      "id": "v102",
+      "type": "Unauthorized Vehicle",
+      "timestamp": "09:27:35",
+      "latitude": 24.12365,
+      "longitude": 86.54400,
       "image_url": "https://via.placeholder.com/150"
     },
     {
-      "id": "v303",
-      "type": "Unattended Equipment",
-      "timestamp": "11:40:00",
-      "latitude": 26.54400,
-      "longitude": 88.12250,
+      "id": "v103",
+      "type": "Person Without Helmet",
+      "timestamp": "09:45:50",
+      "latitude": 24.12400,
+      "longitude": 86.54275,
       "image_url": "https://via.placeholder.com/150"
     }
   ]
